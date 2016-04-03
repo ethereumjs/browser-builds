@@ -4,6 +4,7 @@ module.exports = {
   BN: require('ethereumjs-util').BN,
   RLP: require('ethereumjs-util').rlp,
   Trie: require('merkle-patricia-tree'),
+  Tx: require('ethereumjs-tx'),
   Util: require('ethereumjs-util'),
   VM: require('ethereumjs-vm')
 }
