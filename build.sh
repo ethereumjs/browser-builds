@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGETS="vm tx icap wallet wallet-thirdparty all"
+TARGETS="vm tx icap wallet wallet-hd wallet-thirdparty all"
 
 for TARGET in $TARGETS; do
   echo Building $TARGET
