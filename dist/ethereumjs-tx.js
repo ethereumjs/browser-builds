@@ -7436,7 +7436,7 @@ module.exports={
   "_args": [
     [
       "elliptic@^6.2.3",
-      "/Users/alex/Projects/ethereumjs/browser-builds2/node_modules/secp256k1"
+      "/Users/alex/Projects/ethereumjs/browser-builds/node_modules/secp256k1"
     ]
   ],
   "_from": "elliptic@>=6.2.3 <7.0.0",
@@ -7466,7 +7466,7 @@ module.exports={
   "_shasum": "18e46d7306b0951275a2d42063270a14b74ebe99",
   "_shrinkwrap": null,
   "_spec": "elliptic@^6.2.3",
-  "_where": "/Users/alex/Projects/ethereumjs/browser-builds2/node_modules/secp256k1",
+  "_where": "/Users/alex/Projects/ethereumjs/browser-builds/node_modules/secp256k1",
   "author": {
     "email": "fedor@indutny.com",
     "name": "Fedor Indutny"
@@ -7491,7 +7491,7 @@ module.exports={
   "directories": {},
   "dist": {
     "shasum": "18e46d7306b0951275a2d42063270a14b74ebe99",
-    "tarball": "http://registry.npmjs.org/elliptic/-/elliptic-6.2.3.tgz"
+    "tarball": "https://registry.npmjs.org/elliptic/-/elliptic-6.2.3.tgz"
   },
   "files": [
     "lib"
@@ -8341,7 +8341,7 @@ exports.isValidPrivate = function (privateKey) {
  * Accepts "Ethereum public keys" and SEC1 encoded keys.
  * @method publicToAddress
  * @param {Buffer} pubKey The two points of an uncompressed key, unless sanitize is enabled
- * @param {Boolean} sanitize Accept public keys in other formats
+ * @param {Boolean} [sanitize=false] Accept public keys in other formats
  * @return {Buffer}
  */
 exports.pubToAddress = exports.publicToAddress = function (pubKey, sanitize) {
@@ -10254,9 +10254,9 @@ if (typeof Object.create === 'function') {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],33:[function(require,module,exports){
-module.exports = require('sha3').SHA3Hash
+module.exports = require('browserify-sha3').SHA3Hash
 
-},{"sha3":3}],34:[function(require,module,exports){
+},{"browserify-sha3":3}],34:[function(require,module,exports){
 (function (Buffer){
 const assert = require('assert')
 /**
