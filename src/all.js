@@ -1,6 +1,7 @@
 module.exports = {
   ABI: require('ethereumjs-abi'),
   Account: require('ethereumjs-account'),
+  Block: require('ethereumjs-block'),
   Buffer: require('buffer'),
   BN: require('ethereumjs-util').BN,
   ICAP: require('ethereumjs-icap'),
