@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/ethereumjs/browser-builds#readme",
   "dependencies": {
-    "bn.js": "4.10.5",
-    "ethereumjs-abi": "^0.6.0",
+    "ethereumjs-abi": "^0.6.2",
     "ethereumjs-icap": "^0.3.0",
     "ethereumjs-tx": "^1.1.1",
     "ethereumjs-units": "^0.1.0",
