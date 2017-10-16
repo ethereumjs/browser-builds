@@ -14,12 +14,25 @@ const packages = [
 ]
 
 packages.forEach(function(name) {
+  console.log('Running browserify for package ' + name + '...')
   var version = require('./node_modules/' + name + '/package.json').version
-  var outPath = buildDir + name + '/' + name + '-' + version + '.js'
-  var bundleFs = fs.createWriteStream(outPath)
+  var baseOutPath = buildDir + name + '/' + name + '-' + version
+  
+  console.log("Creating debug version package...")
+  var bundleFs = fs.createWriteStream(baseOutPath + '.js')
   browserify(srcDir + name + '.js', {
-    standalone: standaloneName
-  })
+    standalone: standaloneName,
+    debug: true
+  }).transform("babelify", {presets: ["es2015", "react"]})
+    .bundle()
+    .pipe(bundleFs)
+  
+  console.log("Creating minified package...")
+  bundleFs = fs.createWriteStream(baseOutPath + '.min.js')
+  browserify(srcDir + name + '.js', {
+    standalone: standaloneName,
+  }).transform("babelify", {presets: ["es2015", "react"]})
+    .transform('uglifyify', { global: true  })
     .bundle()
     .pipe(bundleFs)
 })
