@@ -9,6 +9,7 @@ This repository contains browser builds of the following ``ethereumjs`` librarie
 - [ethereumjs-wallet-thirdparty](./dist/ethereumjs-wallet-thirdparty/)
 - [ethereumjs-icap](./dist/ethereumjs-icap/)
 - [ethereumjs-abi](./dist/ethereumjs-abi/)
+- [ethereumjs-all](./dist/ethereumjs-all/)
 
 They are built using [browserify](browserify.org) with a known set of working dependencies.
 
