@@ -5,5 +5,6 @@ module.exports = {
   RLP: require('ethereumjs-util').rlp,
   Tx: require('ethereumjs-tx'),
   Util: require('ethereumjs-util'),
-  Wallet: require('ethereumjs-wallet')
+  Wallet: require('ethereumjs-wallet'),
+  WalletThirdparty: require('ethereumjs-wallet/thirdparty')
 }

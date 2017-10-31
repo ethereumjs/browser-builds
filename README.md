@@ -5,6 +5,8 @@ This repository contains browser builds of the following ``ethereumjs`` librarie
 - [ethereumjs-vm](./dist/ethereumjs-vm/)
 - [ethereumjs-tx](./dist/ethereumjs-tx/)
 - [ethereumjs-wallet](./dist/ethereumjs-wallet/)
+- [ethereumjs-wallet-hd](./dist/ethereumjs-wallet-hd/)
+- [ethereumjs-wallet-thirdparty](./dist/ethereumjs-wallet-thirdparty/)
 - [ethereumjs-icap](./dist/ethereumjs-icap/)
 - [ethereumjs-abi](./dist/ethereumjs-abi/)
 

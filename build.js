@@ -10,12 +10,15 @@ const packages = [
   'ethereumjs-tx',
   'ethereumjs-icap',
   'ethereumjs-wallet',
+  'ethereumjs-wallet-hd',
+  'ethereumjs-wallet-thirdparty',
   'ethereumjs-abi'
 ]
 
 packages.forEach(function(name) {
   console.log('Running browserify for package ' + name + '...')
-  var version = require('./node_modules/' + name + '/package.json').version
+  var baseName = name.replace('-hd', '').replace('-thirdparty', '')
+  var version = require('./node_modules/' + baseName + '/package.json').version
   var baseOutPath = buildDir + name + '/' + name + '-' + version
   
   console.log("Creating debug version package...")
