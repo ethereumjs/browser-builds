@@ -6,16 +6,28 @@ const buildDir = 'dist/'
 
 const standaloneName = 'ethereumjs'
 const packages = [
+  'ethereumjs-all',
   'ethereumjs-vm',
   'ethereumjs-tx',
   'ethereumjs-icap',
   'ethereumjs-wallet',
+  'ethereumjs-wallet-hd',
+  'ethereumjs-wallet-thirdparty',
   'ethereumjs-abi'
 ]
 
 packages.forEach(function(name) {
   console.log('Running browserify for package ' + name + '...')
-  var version = require('./node_modules/' + name + '/package.json').version
+  var baseName = name.replace('-hd', '').replace('-thirdparty', '')
+  var version
+  if (name === 'ethereumjs-all') {
+    var date = new Date()
+    var day  = date.getDate()
+    day = (day < 10 ? "0" : "") + day
+    version = String(date.getFullYear()) + '-' + String(date.getMonth() + 1) + '-' + String(day)
+  } else {
+    version = require('./node_modules/' + baseName + '/package.json').version
+  } 
   var baseOutPath = buildDir + name + '/' + name + '-' + version
   
   console.log("Creating debug version package...")
