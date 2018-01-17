@@ -3,6 +3,7 @@ var browserify = require("browserify")
 
 const srcDir = 'src/'
 const buildDir = 'dist/'
+const babelPresets = ["env", "react"]
 
 const standaloneName = 'ethereumjs'
 const packages = [
@@ -41,7 +42,7 @@ packages.forEach(function(name) {
     browserify(srcDir + name + '.js', {
       standalone: standaloneName,
       debug: true
-    }).transform("babelify", {presets: ["es2015", "react"]})
+    }).transform("babelify", {presets: babelPresets})
       .bundle()
       .pipe(bundleFs)
   })
@@ -56,7 +57,7 @@ packages.forEach(function(name) {
     bundleFs = fs.createWriteStream('', { fd: fd })
     browserify(srcDir + name + '.js', {
       standalone: standaloneName,
-    }).transform("babelify", {presets: ["es2015", "react"]})
+    }).transform("babelify", {presets: babelPresets})
       .transform('uglifyify', { global: true  })
       .bundle()
       .pipe(bundleFs)
