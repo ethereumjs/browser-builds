@@ -13,6 +13,9 @@ This repository contains browser builds of the following ``ethereumjs`` librarie
 
 They are built using [browserify](browserify.org) with a known set of working dependencies.
 
+For every library/build collection there is a larger plain source version also including the source mappings
+(e.g. ``ethereumjs-vm-x.x.x.js``) and a minified version for use in production (e.g. ``ethereumjs-vm-x.x.x.min.js``).
+
 **Note:**
 
 This repository was just lately (October 2017) revived. Currently all builds are considered ``experimental`` in terms of API stability, functionality and security!
