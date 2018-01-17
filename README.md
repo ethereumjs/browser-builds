@@ -33,5 +33,15 @@ Start an [http-server](https://github.com/indexzero/http-server) from the main d
 
 ## Build
 
-Run `npm run build` to generate a new set up builds. Change `package.json` to require different versions of the libraries.
+Builds are done using the ``.js`` ``exports`` compilation files from the [src/](./src/) directory and using the
+[build.js](./build.js) script from the main directory to create the build in the [dist/](./dist/) folder.
+
+Version numbers for the builds are directly extracted from the versions installed in the local ``node_modules`` 
+folder.
+
+For creating new builds:
+
+1. Change `package.json` to require desired/up-to-date versions of the libraries
+2. Reinstall/update local ``node_modules`` packages
+3. Run `npm run build` to generate new set of builds
 
