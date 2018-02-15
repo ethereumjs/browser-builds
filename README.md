@@ -13,6 +13,9 @@ This repository contains browser builds of the following ``ethereumjs`` librarie
 
 They are built using [browserify](browserify.org) with a known set of working dependencies.
 
+For every library/build collection there is a larger plain source version also including the source mappings
+(e.g. ``ethereumjs-vm-x.x.x.js``) and a minified version for use in production (e.g. ``ethereumjs-vm-x.x.x.min.js``).
+
 **Note:**
 
 This repository was just lately (October 2017) revived. Currently all builds are considered ``experimental`` in terms of API stability, functionality and security!
@@ -33,5 +36,15 @@ Start an [http-server](https://github.com/indexzero/http-server) from the main d
 
 ## Build
 
-Run `npm run build` to generate a new set up builds. Change `package.json` to require different versions of the libraries.
+Builds are done using the ``.js`` ``exports`` compilation files from the [src/](./src/) directory and using the
+[build.js](./build.js) script from the main directory to create the build in the [dist/](./dist/) folder.
+
+Version numbers for the builds are directly extracted from the versions installed in the local ``node_modules`` 
+folder.
+
+For creating new builds:
+
+1. Change `package.json` to require desired/up-to-date versions of the libraries
+2. Reinstall/update local ``node_modules`` packages
+3. Run `npm run build` to generate new set of builds
 

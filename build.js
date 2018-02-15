@@ -3,6 +3,7 @@ var browserify = require("browserify")
 
 const srcDir = 'src/'
 const buildDir = 'dist/'
+const babelPresets = ["env", "react"]
 
 const standaloneName = 'ethereumjs'
 const packages = [
@@ -17,7 +18,6 @@ const packages = [
 ]
 
 packages.forEach(function(name) {
-  console.log('Running browserify for package ' + name + '...')
   var baseName = name.replace('-hd', '').replace('-thirdparty', '')
   var version
   if (name === 'ethereumjs-all') {
@@ -30,23 +30,38 @@ packages.forEach(function(name) {
   } 
   var baseOutPath = buildDir + name + '/' + name + '-' + version
   
-  console.log("Creating debug version package...")
-  var bundleFs = fs.createWriteStream(baseOutPath + '.js')
-  browserify(srcDir + name + '.js', {
-    standalone: standaloneName,
-    debug: true
-  }).transform("babelify", {presets: ["es2015", "react"]})
-    .bundle()
-    .pipe(bundleFs)
-  
-  console.log("Creating minified package...")
-  bundleFs = fs.createWriteStream(baseOutPath + '.min.js')
-  browserify(srcDir + name + '.js', {
-    standalone: standaloneName,
-  }).transform("babelify", {presets: ["es2015", "react"]})
-    .transform('uglifyify', { global: true  })
-    .bundle()
-    .pipe(bundleFs)
+  fs.open(baseOutPath + '.js', 'wx', (err, fd) => {
+    console.log(`\n***${name}***`)
+    if (err) {
+      console.log(`Omitting debug version package ${baseOutPath}.js (file exists)`)
+      return
+    } else {
+      console.log(`Creating debug version package ${baseOutPath}.js`)
+    }
+    var bundleFs = fs.createWriteStream('', { fd: fd })
+    browserify(srcDir + name + '.js', {
+      standalone: standaloneName,
+      debug: true
+    }).transform("babelify", {presets: babelPresets})
+      .bundle()
+      .pipe(bundleFs)
+  })
+
+  fs.open(baseOutPath + '.min.js', 'wx', (err, fd) => {
+    if (err) {
+      console.log(`Omitting minified package ${baseOutPath}.min.js (file exists)`)
+      return
+    } else {
+      console.log(`Creating minified package ${baseOutPath}.min.js`)
+    }
+    bundleFs = fs.createWriteStream('', { fd: fd })
+    browserify(srcDir + name + '.js', {
+      standalone: standaloneName,
+    }).transform("babelify", {presets: babelPresets})
+      .transform('uglifyify', { global: true  })
+      .bundle()
+      .pipe(bundleFs)
+  })
 })
 
 
