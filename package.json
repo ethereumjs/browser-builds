@@ -29,6 +29,7 @@
     "ethereumjs-wallet": "^0.6.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
