@@ -1,3 +1,13 @@
+## DEPRECATED
+
+This repository has been deprecated.
+
+We are targeting to deliver browser-friendly versions of the libraries along published package releases. If you are running into problems please open an issue on the respective repository.
+
+Questions?
+
+[![Discord][discord-badge]][discord-link]
+
 # ethereumjs - Browser Builds
 
 This repository contains browser builds of the following ``ethereumjs`` libraries:
@@ -15,10 +25,6 @@ They are built using [browserify](browserify.org) with a known set of working de
 
 For every library/build collection there is a larger plain source version also including the source mappings
 (e.g. ``ethereumjs-vm-x.x.x.js``) and a minified version for use in production (e.g. ``ethereumjs-vm-x.x.x.min.js``).
-
-**Note:**
-
-This repository was just lately (October 2017) revived. Currently all builds are considered ``experimental`` in terms of API stability, functionality and security!
 
 ## Usage
 
@@ -48,3 +54,6 @@ For creating new builds:
 2. Reinstall/update local ``node_modules`` packages
 3. Run `npm run build` to generate new set of builds
 
+
+[discord-badge]: https://img.shields.io/static/v1?logo=discord&label=discord&message=Join&color=blue
+[discord-link]: https://discord.gg/TNwARpR
